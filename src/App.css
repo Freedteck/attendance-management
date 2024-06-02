@@ -1,0 +1,373 @@
+.container {
+  padding: 20px 60px;
+}
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 20px 0 rgba(1, 41, 112, 10%);
+  position: sticky;
+  top: 0;
+}
+h1 {
+  color: #012970;
+}
+h2,
+h3 {
+  color: #4154f1;
+}
+
+/* Form */
+.form-page h1 {
+  font-size: 3rem;
+}
+.form-page {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.form-page .desc {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  flex-basis: 50%;
+}
+.form {
+  flex: 1;
+}
+.form form {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 12.5%);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+input {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+}
+input:focus {
+  outline-color: #3c4ef1;
+}
+.roles {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.role {
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #5f6ef1;
+  background-color: #f0f4fb;
+  min-width: 207px;
+  padding: 16px 8px;
+  color: #3c4ef1;
+}
+[type="radio"] {
+  width: 24px;
+  height: 24px;
+}
+button {
+  background-color: #4154f1;
+  color: #fff;
+  border-radius: 8px;
+  align-self: flex-start;
+  padding: 12px;
+  border: none;
+  font-weight: 500;
+}
+
+/* Dashboard */
+.dashboard {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+aside {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #fff;
+  box-shadow: 0 0 20px 0 rgba(1, 41, 112, 10%);
+  justify-content: flex-start;
+  padding: 30px 50px;
+}
+aside a {
+  color: #012970;
+  text-decoration: none;
+  width: 100%;
+}
+aside > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+aside > div:hover {
+  background-color: #f6f6fe;
+}
+aside > div:hover p {
+  color: #4154f1;
+}
+
+/* Main */
+main {
+  padding-left: 150px;
+  padding-right: 60px;
+  padding-top: 50px;
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+}
+.infos {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  flex: 1;
+  /* flex-wrap: wrap; */
+}
+.left-info {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  /* flex-basis: 60%; */
+  flex: 1;
+}
+.infos .attendance-cards {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.attendance-cards .card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 30px 0 rgba(1, 41, 112, 10%);
+  width: 300px;
+  flex: 1;
+}
+.card .date p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4154f1;
+  font-weight: 500;
+}
+.card .total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.total .icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #f6f6fe;
+}
+.total .number {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.number h3 {
+  font-size: 1.8rem;
+}
+.number p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+p span {
+  font-weight: 400;
+  color: #899bbd;
+}
+
+.left-info .notification-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+div.react-calendar {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 30px 0 rgba(1, 41, 112, 10%);
+  /* flex: 1; */
+}
+
+.react-calendar button {
+  color: #012970;
+  font-weight: 500;
+}
+abbr[title] {
+  color: #4154f1;
+  font-weight: 600;
+}
+button.react-calendar__tile--now {
+  background: #899bbd;
+}
+button.react-calendar__tile--active {
+  background: #4154f1;
+}
+button.react-calendar__tile--now:enabled:hover,
+button.react-calendar__tile--now:enabled:focus {
+  background: #4154f1;
+}
+.selections {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.selections label {
+  box-shadow: 0 0 3px 0 #343A40;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  width: 170px;
+}
+.selections input,
+.selections select {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.selections button {
+  align-self: center;
+}
+.tables {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+.tables table {
+  width: 100%;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+table thead {
+  background-color: #f6f6fe;
+  box-shadow: 0 1px 3px 0 #899bbd;
+}
+table td, table th {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+table th {
+  text-align: left;
+}
+table tbody tr:hover {
+  background-color: #f6f6fe;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+caption {
+  font-weight: 500;
+  color: #012970;
+  font-size: 1.5rem;
+  text-align: left;
+  flex-shrink: 0;
+}
+.caption input {
+  width: auto;
+}
+
+/* Lecturer list */
+.table-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+main .add {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Notification */
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+.notification li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #f6f6fe;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px 0 #899bbd;
+}
+
+/* Add student */
+form {
+  max-width: 564px;
+  padding: 20px;
+  background-color: #FFF;
+  box-shadow: 0 0 30px 0 rgba(1, 41, 112, 10%);
+}
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+legend {
+  color: #012970;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+form select {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+form select:focus {
+  outline-color: #3c4ef1;
+}
