@@ -1,18 +1,37 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
+import { useState } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
-  const handleLogin = (btn) => {
+  const { hasExpired, userRoles } = useFetch();
+  const [dashboardOpened, setDashboardOpened] = useState(false);
+
+  const handleLogin = () => {
     navigate("/login");
-    btn.style.display = 'none'
   };
+
+  const handleDashboardClick = () => {
+    if (userRoles.includes("ROLE_SUPER_ADMIN")) {
+      navigate("/admin");
+      setDashboardOpened(true);
+    } else if (userRoles.includes("ROLE_LECTURER")) {
+      navigate("/lecturer");
+      setDashboardOpened(true);
+    }
+  };
+
   return (
     <nav className="navbar-header container">
       <h1>Attendiix</h1>
       {/* <div>
                 user details here
             </div> */}
-      <button onClick={(e) => handleLogin(e.target)}>Login</button>
+      {hasExpired && <button onClick={handleLogin}>Login</button>}
+      {!hasExpired && !dashboardOpened && (
+        <button onClick={handleDashboardClick}>Go to dashboard</button>
+      )}
     </nav>
   );
 };

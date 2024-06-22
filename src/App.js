@@ -1,6 +1,10 @@
-// App.js
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Login from "./pages/Login";
@@ -15,6 +19,20 @@ import AddStudent from "./pages/Lecturer/AddStudent";
 import UserForm from "./components/UserForm";
 import Courses from "./pages/Admin/Courses";
 import AddCourse from "./components/AddCourse";
+import useFetch from "./hooks/useFetch";
+
+function ProtectedRoutes({ children }) {
+  const { hasExpired } = useFetch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (hasExpired) {
+      navigate("/login");
+    }
+  }, [hasExpired, navigate]);
+
+  return children;
+}
 
 function App() {
   return (
@@ -24,31 +42,39 @@ function App() {
           <Header />
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/lecturer/*" element={<LecturerLayout />}>
-              <Route index element={<LecturerMain />} />
-              <Route path="lecturer-dashboard" element={<LecturerMain />} />
-              <Route
-                path="attendance-sheet"
-                element={<LecturerAttendanceSheet />}
-              />
-              <Route path="students" element={<Students />} />
-              <Route path="students/add" element={<AddStudent />} />
-            </Route>
-
-            <Route path="/admin/*" element={<AdminLayout />}>
-              <Route index element={<LecturerMain />} />
-              <Route path="dashboard" element={<LecturerMain />} />
-              <Route
-                path="attendance"
-                element={<LecturerAttendanceSheet />}
-              />
-              <Route path="lecturers" element={<Lecturer />} />
-              <Route path="lecturers/add" element={<UserForm />} />
-              <Route path="students" element={<Students />} />
-              <Route path="students/add" element={<AddStudent />} />
-              <Route path="courses" element={<Courses />} />
-              <Route path="courses/add" element={<AddCourse />} />
-            </Route>
+            <Route
+              path="/*"
+              element={
+                <ProtectedRoutes>
+                  <Routes>
+                    <Route path="/lecturer/*" element={<LecturerLayout />}>
+                      <Route index element={<LecturerMain />} />
+                      <Route path="dashboard" element={<LecturerMain />} />
+                      <Route
+                        path="attendance-sheet"
+                        element={<LecturerAttendanceSheet />}
+                      />
+                      <Route path="students" element={<Students />} />
+                      <Route path="students/add" element={<AddStudent />} />
+                    </Route>
+                    <Route path="/admin/*" element={<AdminLayout />}>
+                      <Route index element={<LecturerMain />} />
+                      <Route path="dashboard" element={<LecturerMain />} />
+                      <Route
+                        path="attendance"
+                        element={<LecturerAttendanceSheet />}
+                      />
+                      <Route path="lecturers" element={<Lecturer />} />
+                      <Route path="lecturers/add" element={<UserForm />} />
+                      <Route path="students" element={<Students />} />
+                      <Route path="students/add" element={<AddStudent />} />
+                      <Route path="courses" element={<Courses />} />
+                      <Route path="courses/add" element={<AddCourse />} />
+                    </Route>
+                  </Routes>
+                </ProtectedRoutes>
+              }
+            />
             <Route index element={<Home />} />
           </Routes>
         </Router>
