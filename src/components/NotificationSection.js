@@ -46,6 +46,8 @@ const NotificationSection = () => {
       userRoles.includes("ROLE_ADMIN")
     ) {
       setShowAddBtn(true);
+    } else {
+      console.log("User not an Admin");
     }
   }, [userRoles]);
   return (

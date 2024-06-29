@@ -9,9 +9,7 @@ const useFetch = () => {
     const expiryDate = new Date(localStorage.getItem("expiryDate"));
     const now = new Date();
 
-    if (now > expiryDate || !expiryDate) {
-      setHasExpired(true);
-    }
+    setHasExpired(now > expiryDate);
   }, [token]);
 
   return { hasExpired, token, userRoles };

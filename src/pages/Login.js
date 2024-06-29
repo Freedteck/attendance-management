@@ -12,7 +12,7 @@ const Login = () => {
   function setToken(token, date, userRoles) {
     localStorage.setItem("jwtToken", token);
     localStorage.setItem("expiryDate", date);
-    localStorage.setItem("userRoles", userRoles);
+    localStorage.setItem("userRoles", userRoles || []);
     localStorage.setItem("tokenIssueTime", Date.now());
   }
   const handleLogin = (e) => {
