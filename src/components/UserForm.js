@@ -11,6 +11,7 @@ const UserForm = () => {
   const [lastName, setLastName] = useState("");
   const [schoolEmail, setSchoolEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [role, setRole] = useState("lecturer");
   const { token } = useFetch();
 
   const handleClick = (e) => {
@@ -28,7 +29,7 @@ const UserForm = () => {
         lastName,
         schoolEmail,
         phoneNumber: phone,
-        role: "instructor",
+        role,
       }),
     })
       .then((response) => {
@@ -49,6 +50,28 @@ const UserForm = () => {
       <form>
         <fieldset>
           <legend>Add a Lecturer</legend>
+          <div className="roles">
+            <label className="role">
+              <input
+                type="radio"
+                name="role"
+                value={"lecturer"}
+                checked={role === "lecturer"}
+                onChange={(e) => setRole(e.target.value)}
+              />
+              Lecturer
+            </label>
+            <label className="role">
+              <input
+                type="radio"
+                name="role"
+                value={"student"}
+                checked={role === "student"}
+                onChange={(e) => setRole(e.target.value)}
+              />
+              Student
+            </label>
+          </div>
           <label>
             User Id
             <input

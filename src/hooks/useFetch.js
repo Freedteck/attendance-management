@@ -12,7 +12,7 @@ const useFetch = () => {
     if (now > expiryDate || !expiryDate) {
       setHasExpired(true);
     }
-  }, []);
+  }, [token]);
 
   return { hasExpired, token, userRoles };
 };

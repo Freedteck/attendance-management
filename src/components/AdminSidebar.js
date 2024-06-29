@@ -7,7 +7,7 @@ const AdminSidebar = () => {
         <Link to="/admin/dashboard">Dashboard</Link>
       </div>
       <div className="lecturer">
-        <Link to="/admin/lecturers">Lecturers</Link>
+        <Link to="/admin/users">Users</Link>
       </div>
       {/* <div className="student">
           <Link to="/admin/students">Student</Link>

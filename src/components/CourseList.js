@@ -16,7 +16,7 @@ const CourseList = ({ courses }) => {
             <th>#</th>
             <th>Course Code</th>
             <th>Course Title</th>
-            <th>Lecturer Name</th>
+            {/* <th>Lecturer Name</th> */}
             <th>Lecturer ID</th>
           </tr>
         </thead>
@@ -24,10 +24,9 @@ const CourseList = ({ courses }) => {
           {courses.map((course, index) => (
             <tr key={`${course[0]}${index}${course[1]}`}>
               <td>{index + 1}</td>
-              <td>{course.courseCode}</td>
-              <td>{course.courseTitle}</td>
-              <td>{course.lecturerInCharge.name}</td>
-              <td>{course.lecturerInCharge.id}</td>
+              <td>{course.subject_code}</td>
+              <td>{course.subject_title}</td>
+              <td>{course.id_lecturer_in_charge}</td>
             </tr>
           ))}
         </tbody>

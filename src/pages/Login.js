@@ -7,14 +7,13 @@ const Login = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("lecturer");
 
   function setToken(token, date, userRoles) {
     localStorage.setItem("jwtToken", token);
     localStorage.setItem("expiryDate", date);
     localStorage.setItem("userRoles", userRoles);
     localStorage.setItem("tokenIssueTime", Date.now());
-    // scheduleTokenExpiry();
   }
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,7 +27,7 @@ const Login = () => {
       .then((response) => response.json())
       .then((data) => {
         setToken(data.jwt_token, data.expiryDate, data.user_roles);
-        // console.log(data);
+
         if (data.user_roles.includes("ROLE_SUPER_ADMIN") && role === "admin") {
           navigate("/admin");
         } else if (

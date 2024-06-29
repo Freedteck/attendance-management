@@ -18,7 +18,6 @@ const Lecturer = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.data);
           setLecturers(data.data);
         })
         .catch((error) => {
@@ -37,7 +36,7 @@ const Lecturer = () => {
     <main>
       <div className="add">
         <h2>Lecturers</h2>
-        <button onClick={handleClick}>Add Lecturer</button>
+        <button onClick={handleClick}>Add User</button>
       </div>
       <LecturersList lecturers={lecturers} />
     </main>

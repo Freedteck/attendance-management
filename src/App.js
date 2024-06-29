@@ -9,7 +9,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Login from "./pages/Login";
 import LecturerLayout from "./pages/Lecturer/LecturerLayout";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import LecturerAttendanceSheet from "./pages/Lecturer/LecturerAttendanceSheet";
 import LecturerMain from "./components/LecturerMain";
 import AdminLayout from "./pages/Admin/AdminLayout";
@@ -64,10 +64,10 @@ function App() {
                         path="attendance"
                         element={<LecturerAttendanceSheet />}
                       />
-                      <Route path="lecturers" element={<Lecturer />} />
-                      <Route path="lecturers/add" element={<UserForm />} />
-                      <Route path="students" element={<Students />} />
-                      <Route path="students/add" element={<AddStudent />} />
+                      <Route path="users" element={<Lecturer />} />
+                      <Route path="users/add" element={<UserForm />} />
+                      {/* <Route path="students" element={<Students />} />
+                      <Route path="students/add" element={<AddStudent />} /> */}
                       <Route path="courses" element={<Courses />} />
                       <Route path="courses/add" element={<AddCourse />} />
                     </Route>
@@ -75,7 +75,7 @@ function App() {
                 </ProtectedRoutes>
               }
             />
-            <Route index element={<Home />} />
+            {/* <Route index element={<Home />} /> */}
           </Routes>
         </Router>
       </div>

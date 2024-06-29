@@ -18,7 +18,6 @@ const Courses = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.data);
           setCourses(data.data);
         })
         .catch((error) => {

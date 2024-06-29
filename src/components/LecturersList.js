@@ -60,10 +60,7 @@ const LecturersList = ({ lecturers }) => {
               <td>{lecturer.firstName + " " + lecturer.lastName}</td>
               <td>{lecturer.schoolEmail}</td>
               <td>{lecturer.id}</td>
-              <td className="table-btn">
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
+              <td>{lecturer.accountStatus}</td>
             </tr>
           ))}
         </tbody>
