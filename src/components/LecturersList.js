@@ -26,7 +26,7 @@ const LecturersList = ({ lecturers }) => {
           id="search"
           placeholder="Search..."
           value={searchQuery}
-          onChange={setSearchQuery}
+          onChange={handleSearchChange}
         />
       </div>
       <table>
