@@ -1,36 +1,20 @@
+import { useState } from "react";
+
 const LecturersList = ({ lecturers }) => {
-  // const lecturers = [
-  //   {
-  //     id: 1,
-  //     name: "John Doe",
-  //     email: "john.doe@example.com",
-  //     lecturerId: "L1234",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Jane Smith",
-  //     email: "jane.smith@example.com",
-  //     lecturerId: "L5678",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Emily Johnson",
-  //     email: "emily.johnson@example.com",
-  //     lecturerId: "L9101",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Michael Brown",
-  //     email: "michael.brown@example.com",
-  //     lecturerId: "L1121",
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Sarah Davis",
-  //     email: "sarah.davis@example.com",
-  //     lecturerId: "L3141",
-  //   },
-  // ];
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredUsers = lecturers.filter((lecturer) => {
+    const fullName = `${lecturer.firstName} ${lecturer.lastName}`.toLowerCase();
+
+    return (
+      fullName.includes(searchQuery.toLowerCase()) ||
+      lecturer.id.includes(searchQuery.toString().includes(searchQuery))
+    );
+  });
 
   return (
     <section className="tables">
@@ -41,6 +25,8 @@ const LecturersList = ({ lecturers }) => {
           name="search"
           id="search"
           placeholder="Search..."
+          value={searchQuery}
+          onChange={setSearchQuery}
         />
       </div>
       <table>
@@ -54,7 +40,7 @@ const LecturersList = ({ lecturers }) => {
           </tr>
         </thead>
         <tbody>
-          {lecturers.map((lecturer, index) => (
+          {filteredUsers.map((lecturer, index) => (
             <tr key={lecturer.id}>
               <td>{index + 1}</td>
               <td>{lecturer.firstName + " " + lecturer.lastName}</td>
