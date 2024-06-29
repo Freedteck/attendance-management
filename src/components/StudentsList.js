@@ -1,36 +1,21 @@
+import { useState } from "react";
+
 const StudentsList = ({ students }) => {
-  // const students = [
-  //     {
-  //       id: 1,
-  //       name: "John Doe",
-  //       email: "john.doe@example.com",
-  //       studentId: "S1234",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Jane Smith",
-  //       email: "jane.smith@example.com",
-  //       studentId: "S5678",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Emily Johnson",
-  //       email: "emily.johnson@example.com",
-  //       studentId: "S9101",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Michael Brown",
-  //       email: "michael.brown@example.com",
-  //       studentId: "S1121",
-  //     },
-  //     {
-  //       id: 5,
-  //       name: "Sarah Davis",
-  //       email: "sarah.davis@example.com",
-  //       studentId: "S3141",
-  //     },
-  //   ];
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Function to handle search input change
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Function to filter students based on search query
+  const filteredStudents = students.filter((student) => {
+    const fullName = `${student.firstname} ${student.lastname}`.toLowerCase();
+    return (
+      fullName.includes(searchQuery.toLowerCase()) ||
+      student.studentId.toString().includes(searchQuery)
+    );
+  });
 
   return (
     <section className="tables">
@@ -41,6 +26,8 @@ const StudentsList = ({ students }) => {
           name="search"
           id="search"
           placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchChange}
         />
       </div>
       <table>
@@ -54,7 +41,7 @@ const StudentsList = ({ students }) => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student, index) => (
+          {filteredStudents.map((student, index) => (
             <tr key={`${student[0]}${index}${student[1]}`}>
               <td>{index + 1}</td>
               <td>{student.firstname + " " + student.lastname}</td>
