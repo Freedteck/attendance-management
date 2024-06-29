@@ -12,7 +12,7 @@ const LecturersList = ({ lecturers }) => {
 
     return (
       fullName.includes(searchQuery.toLowerCase()) ||
-      lecturer.id.includes(searchQuery.toString().includes(searchQuery))
+      lecturer.id.toString().includes(searchQuery)
     );
   });
 
