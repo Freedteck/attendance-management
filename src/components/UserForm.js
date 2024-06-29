@@ -11,7 +11,7 @@ const UserForm = () => {
   const [lastName, setLastName] = useState("");
   const [schoolEmail, setSchoolEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [role, setRole] = useState("lecturer");
+  const [role, setRole] = useState("instructor");
   const { token } = useFetch();
 
   const handleClick = (e) => {
@@ -55,8 +55,8 @@ const UserForm = () => {
               <input
                 type="radio"
                 name="role"
-                value={"lecturer"}
-                checked={role === "lecturer"}
+                value={"instructor"}
+                checked={role === "instructor"}
                 onChange={(e) => setRole(e.target.value)}
               />
               Lecturer
